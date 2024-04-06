@@ -6,7 +6,7 @@ use Classes\Paginacion;
 use MVC\Router;
 use Model\Tarea;
 
-class TareasController // Cambiado de PonentesController a TareasController
+class TareasController
 {
 
     public static function index(Router $router)
