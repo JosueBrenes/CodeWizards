@@ -894,7 +894,7 @@ h3 {
   background-color: #f8fafc;
 }
 .dashboard__header {
-  background-color: #13156d;
+  background-color: #1828a2;
   padding: 2rem;
 }
 .dashboard__header-grid {
@@ -963,7 +963,7 @@ h3 {
 }
 .dashboard__enlace:hover,
 .dashboard__enlace--actual {
-  background-color: #101a6a;
+  background-color: #1828a2;
   color: #ffffff;
   border-radius: 1rem;
 }
