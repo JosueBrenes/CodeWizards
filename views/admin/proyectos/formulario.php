@@ -46,7 +46,22 @@
     </div>
 
     <div class="formulario__campo">
-        <label for="archivo" class="formulario__label">Archivo Relevante al Proyecto</label>
-        <input type="file" id="archivo" name="archivo" accept=".doc,.docx,.pdf">
+        <label for="archivo" class="formulario__label">Archivo</label>
+        <input
+            type="file"
+            class="formulario__input formulario__input--file"
+            id="archivo"
+            name="archivo"
+        >
     </div>
+
+    <?php if(isset($proyecto->archivo)) { ?>
+        <p class="formulario__texto">Archivo Actual:</p>
+        <div class="formulario__imagen">
+            <a href="<?php echo $_ENV['HOST'] . '/file/proyectos/' . basename($proyecto->archivo); ?>" target="_blank">
+                <?php echo basename($proyecto->archivo); ?>
+            </a>
+        </div>
+    <?php } ?>
+
 </fieldset>

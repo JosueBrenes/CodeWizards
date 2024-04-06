@@ -42,6 +42,7 @@ class ProyectosController
     {
         if (!is_admin()) {
             header('Location: /login');
+            exit; // Importante salir del script después de redirigir
         }
 
         $alertas = [];
@@ -52,7 +53,30 @@ class ProyectosController
             // Verificar que el usuario sea administrador
             if (!is_admin()) {
                 header('Location: /login');
+                exit; // Salir del script después de redirigir
             }
+
+            // Verificar si se ha enviado un archivo
+            if(!empty($_FILES['archivo']['tmp_name'])) {
+                
+                $carpeta_proyectos = '../public/file/proyectos';
+
+                // Crear la carpeta si no existe
+                if(!is_dir($carpeta_proyectos)) {
+                    mkdir($carpeta_proyectos, 0755, true);
+                }
+
+                // Mover el archivo a la carpeta de proyectos
+                $nombre_archivo = uniqid() . '_' . $_FILES['archivo']['name'];
+                $ruta_archivo = $carpeta_proyectos . '/' . $nombre_archivo;
+                
+                if(move_uploaded_file($_FILES['archivo']['tmp_name'], $ruta_archivo)) {
+                    // Guardar la ruta del archivo en el objeto proyecto
+                    $proyecto->archivo = $ruta_archivo;
+                } else {
+                    $alertas['error'][] = 'Error al subir el archivo';
+                }
+            } 
 
             // Obtener los datos del formulario
             $nombre = $_POST['nombre'] ?? '';
@@ -63,7 +87,6 @@ class ProyectosController
             $estado = $_POST['estado'] ?? '';
             $cliente = $_POST['cliente'] ?? '';
             $prioridad = $_POST['prioridad'] ?? '';
-            $archivo = $_FILES['archivo'] ?? '';
 
             // Asignar los valores al objeto proyecto
             $proyecto->nombre = $nombre;
@@ -80,13 +103,6 @@ class ProyectosController
 
             // Verificar si hay errores de validación
             if (empty($alertas['error'])) {
-                // Subir el archivo si se proporcionó
-                if ($archivo && $archivo['tmp_name']) {
-                    $ruta_archivo = '../uploads/' . $archivo['name'];
-                    move_uploaded_file($archivo['tmp_name'], $ruta_archivo);
-                    $proyecto->archivo = $ruta_archivo;
-                }
-
                 // Guardar el proyecto en la base de datos
                 $resultado = $proyecto->guardar();
 
@@ -106,8 +122,6 @@ class ProyectosController
             'proyecto' => $proyecto,
         ]);
     }
-
-
 
     public static function editar(Router $router)
     {
