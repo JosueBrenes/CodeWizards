@@ -414,6 +414,7 @@ h3 {
 }
 .resumen__texto--numero {
   font-size: 8rem;
+  text-align: center;
 }
 
 .resumen__texto2 {
@@ -1176,16 +1177,16 @@ h3 {
   border-radius: 1rem;
 }
 .bloque:nth-child(1) {
-  background-image: linear-gradient(to left top, #f97316, #fba061);
+  background-image: linear-gradient(to left top, #1e2a3a, #1e2a3a);
 }
 .bloque:nth-child(2) {
-  background-image: linear-gradient(to left top, #a855f7, #cd9efa);
+  background-image: linear-gradient(to left top, #1e2a3a, #1e2a3a);
 }
 .bloque:nth-child(3) {
-  background-image: linear-gradient(to left top, #59910b, #85d810);
+  background-image: linear-gradient(to left top, #1e2a3a, #1e2a3a);
 }
 .bloque:nth-child(4) {
-  background-image: linear-gradient(to left top, #17769e, #23a7df);
+  background-image: linear-gradient(to left top, #1e2a3a, #1e2a3a);
 }
 .bloque__heading {
   margin: 1rem 0 2rem 0;

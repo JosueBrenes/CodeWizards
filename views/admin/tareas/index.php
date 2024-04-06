@@ -13,7 +13,6 @@
             <thead class="table__thead">
                 <tr>
                     <th scope="col" class="table__th">Nombre</th>
-                    <th scope="col" class="table__th">Descripción</th>
                     <th scope="col" class="table__th">Fecha de Inicio</th>
                     <th scope="col" class="table__th">Estado</th>
                     <th scope="col" class="table__th">Prioridad</th>
@@ -26,9 +25,6 @@
                     <tr class="table__tr">
                         <td class="table__td">
                             <?php echo $tarea->nombre; ?>
-                        </td>
-                        <td class="table__td">
-                            <?php echo $tarea->descripcion; ?>
                         </td>
                         <td class="table__td">
                             <?php echo $tarea->fecha_inicio; ?>
