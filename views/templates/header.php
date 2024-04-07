@@ -25,3 +25,17 @@
         </div>
     </div>
 </header>
+
+<div class="barra">
+    <div class="barra__contenido">
+        <a href="/">
+            <h2 class="barra__logo">
+                &#60;Code Wizards />
+            </h2>
+        </a>
+        <nav class="navegacion">
+            <a href="/proyectos" class="navegacion__enlace <?php echo pagina_actual('/proyectos') ? 'navegacion__enlace--actual' : ''; ?>">Proyectos</a>
+            <a href="/tareas" class="navegacion__enlace <?php echo pagina_actual('/tareas') ? 'navegacion__enlace--actual' : ''; ?>">Tareas</a>
+        </nav>
+    </div>
+</div>

@@ -52,6 +52,8 @@ $router->post('/admin/proyectos/eliminar', [proyectosController::class, 'elimina
 
 // Área Pública
 $router->get('/', [PaginasController::class, 'index']);
+$router->get('/tareas', [PaginasController::class, 'tareas']);
+$router->get('/proyectos', [PaginasController::class, 'proyectos']);
 $router->get('/404', [PaginasController::class, 'error']);
 
 $router->comprobarRutas();

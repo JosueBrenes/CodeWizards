@@ -28,12 +28,15 @@ class DashboardController
             $registro->usuario = Usuario::find($registro->usuario_id);
         }
 
+        $alertas = Usuario::getAlertas();
+
         $router->render('admin/dashboard/index', [
             'titulo' => 'Panel de Administración',
             'tareas_total' => $tareas_total,
             'tareas' => $tareas,
             'proyectos_total' => $proyectos_total,
-            'proyectos' => $proyectos
+            'proyectos' => $proyectos,
+            'alertas' => $alertas
         ]);
     }
 }
