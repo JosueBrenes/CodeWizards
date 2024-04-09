@@ -176,7 +176,7 @@ class ProyectosController
             // Verificar si se proporcionó un archivo y si se cargó correctamente
             if ($archivo && $archivo['tmp_name']) {
                 // Subir el archivo
-                $ruta_archivo = '../uploads/' . $archivo['name'];
+                $ruta_archivo = '/public/file/proyectos' . $archivo['name'];
                 move_uploaded_file($archivo['tmp_name'], $ruta_archivo);
                 // Asignar la ruta del archivo al proyecto
                 $proyecto->archivo = $ruta_archivo;
